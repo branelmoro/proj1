@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+	</style>
+	<style type="text/css">
+		@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700");
+		.clear-float {
+			clear: both;
+			line-height: 0px;
+		}
+		.body {
+			background: #fff;
+			text-align: center;
+		}
+		.lead-container {
+			text-align: left;
+			margin: 0 auto;
+			max-width: 740px;
+			background: #eee;
+			padding: 9px;
+			font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+			color: #696969;
+		}
+		.box-wrapper {
+			box-shadow: 0px 1px 3px 1px #d6d6d6;
+		}
+		.tab-wrapper {
+			background: #fff;
+			display: table;
+			width: 100%;
+			border-collapse: collapse;
+		}
+		.tab-wrapper .tab {
+			display: table-cell;
+			width: 50%;
+			text-align: center;
+			line-height: 44px;
+			border-left: 1px solid #f2f2f2;
+			border-right: 1px solid #f2f2f2;
+			border-bottom: 3px solid #fff;
+			font-size: 18px;
+			cursor: pointer;
+		}
+		.tab-wrapper .selected {
+			border-bottom: 3px solid #ff7b12;
+			color: #000;
+		}
+		.card-list {
+
+		}
+		.card {
+			background: #fff;
+			margin-top: 20px;
+		}
+		.card-row {
+			border-bottom: 1px solid #f2f2f2;
+			padding: 13px;
+			color: #868686;
+		}
+		.tradie-icon {
+			display: inline-block;
+			color: #fff;
+			width: 42px;
+			height: 42px;
+			line-height: 42px;
+			text-align: center;
+			border-radius: 21px;
+			font-size: 18px;
+			font-weight: bold;
+			margin-right: 14px;
+		}
+		.trdBG0 {
+			background: #555;
+		}
+		.trdBG1 {
+			background: #ff7b12;
+		}
+		.trdBG2 {
+			background: #ff3333;
+		}
+		.trdBG3 {
+			background: #3333ff;
+		}
+		.trdBG4 {
+			background: #058a05;
+		}
+		.tradie-info {
+			display: inline-block;
+			position: relative;
+			top: 6px;
+		}
+		.tradie-name {
+			font-size: 13px;
+			font-weight: bold;
+			line-height: 13px;
+			color: #696969;
+		}
+		.card-time {
+			font-size: 12px;
+			line-height: 25px;
+		}
+		.job-row {
+			font-size: 15px;
+			line-height: 18px;
+		}
+		.job-row span{
+			margin-right: 14px;
+		}
+		.job-location:before {
+			content:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 16"><path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/><path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>');
+			height: 16px;
+			width: 14px;
+			display: inline-block;
+			margin-right: 6px;
+		}
+		.job-category {
+
+		}
+		.job-category:before {
+			content:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 14"><path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z"/></svg>');
+			height: 14px;
+			width: 16px;
+			display: inline-block;
+			margin-right: 6px;
+		}
+		.job-id {
+
+		}
+		.lead-invite {
+
+		}
+		.contact-details {
+			color: #ff7b12;
+			margin-bottom: 13px;
+		}
+		.contact-details span {
+			margin-right: 14px;
+		}
+		.mobile-number:before {
+			content:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/></svg>');
+			height: 16px;
+			width: 16px;
+			display: inline-block;
+			margin-right: 6px;
+		}
+		.email-address:before {
+			content:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" class="bi bi-envelope" viewBox="0 0 16 14"><path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/></svg>');
+			height: 14px;
+			width: 16px;
+			display: inline-block;
+			margin-right: 6px;
+
+		}
+		.job-description {
+			font-size: 13px;
+			line-height: 17px;
+		}
+		.accept-button {
+			cursor: pointer;
+			margin-right: 9px;
+			color: #eee;
+			background: #ff7b12;
+			line-height: 38px;
+			font-size: 14px;
+			text-decoration: none;
+			padding: 10px 23px;
+			font-weight: bold;
+			border-bottom: 2px solid #cc6210;
+		}
+		.decline-button {
+			cursor: pointer;
+			margin-right: 9px;
+			color: #696969;
+			background: #eee;
+			line-height: 38px;
+			font-size: 14px;
+			text-decoration: none;
+			padding: 10px 23px;
+			font-weight: bold;
+			border-bottom: 2px solid #c2c2c2;
+		}
+		.accept-button:hover {
+			color: #fff;
+		}
+		.accept-button:active {
+			position: relative;
+			top: 2px;
+			border-bottom: none;
+		}
+		.decline-button:hover {
+			color: #111;
+		}
+		.decline-button:active {
+			position: relative;
+			top: 2px;
+			border-bottom: none;
+		}
+		.lead-invite strong {
+			font-weight: bold;
+		}
+		.briefcase-icon {
+
+		}
+	</style>
+</head>
+<body>
+	<div class="lead-container">
+		<div class="box-wrapper">
+			<div class="tab-wrapper">
+				<a class="tab">Invited</a>
+				<a class="tab selected">Accepted</a>
+			</div>
+		</div>
+		<div class="card-list">
+			<div class="box-wrapper card">
+				<div class="card-row">
+					<div class="tradie-icon">B</div>
+					<div class="tradie-info">
+						<div class="tradie-name">Branel Moro</div>
+						<div class="card-time">January 1 2018 @ 5:40 pm</div>
+					</div>
+				</div>
+				<div class="card-row job-row">
+					<span class="job-location">Carramer 4522</span>
+					<span class="job-category">General Building Work</span>
+					<span class="job-id">Job Id: 1235345</span>
+					<span class="lead-invite">$66 Lead Invitation</span>
+				</div>
+				<div class="card-row">
+					<div class="contact-details">
+						<span class="mobile-number">9028279229</span>
+						<span class="email-address">branelmoro@gmail.com</span>
+					</div>
+					<div class="job-description">
+						This is general job description for job id 232
+					</div>
+				</div>
+			</div>
+			<div class="box-wrapper card">
+				<div class="card-row">
+					<div class="tradie-icon">B</div>
+					<div class="tradie-info">
+						<div class="tradie-name">Branel Moro</div>
+						<div class="card-time">January 1 2018 @ 5:40 pm</div>
+					</div>
+				</div>
+				<div class="card-row job-row">
+					<span class="job-location">Carramer 4522</span>
+					<span class="job-category">General Building Work</span>
+					<span class="job-id">Job Id: 1235345</span>
+				</div>
+				<div class="card-row">
+					<div class="job-description">
+						This is general job description for job id 232
+					</div>
+				</div>
+				<div class="card-row">
+					<a class="accept-button" href="#">Accept</a>
+					<a class="decline-button" href="#">Decline</a>
+					<span class="lead-invite"><strong>$66</strong> Lead Invitation</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
